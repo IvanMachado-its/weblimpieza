@@ -82,19 +82,32 @@ body {
 
 /* Estilos generales del menú */
 .main-nav {
-    background-color: #007bff;
-    position: fixed; /* Fijar el menú al principio */
+    background-color: #727272;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    z-index: 1000;
     display: flex;
-    justify-content: center; /* Centrar los elementos horizontalmente */
-    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
     padding: 15px 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease; /* Transición suave para el efecto de ocultar/mostrar */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombra mucho más intensa */
+    transition: all 0.3s ease; /* Transición para todos los cambios */
 }
+
+/* Efecto de sombra cuando hace scroll */
+.main-nav.scrolled {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 2); /* Sombra más profunda cuando se hace scroll */
+    transform: translateY(0); /* Asegura que se mantenga en la posición correcta */
+}
+
+/* Para cuando el navbar no está scrolleando */
+.main-nav.hide {
+    box-shadow: none; /* Elimina la sombra cuando está oculto */
+}
+
+
 
 .main-nav ul {
     list-style: none;
@@ -122,24 +135,27 @@ body {
     border-bottom: 2px solid #fff;
 }
 
-/* Estilos móviles */
+
+/* Estilos del menú en dispositivos móviles */
 @media (max-width: 768px) {
     .main-nav ul {
         display: flex;
-        justify-content: space-around; /* Distribuye los enlaces de manera más uniforme */
+        justify-content: space-around;
         align-items: center;
         width: 100%;
         padding: 10px 0;
     }
 
     .main-nav ul li {
-        margin: 0 10px; /* Reduce aún más el margen entre los elementos */
+        margin: 0 10px;
     }
 
     .main-nav ul li a {
-        font-size: 1em; /* Reduce un poco el tamaño de la fuente */
+        font-size: 1em;
     }
 }
+
+
 
 
 /* About Section */
@@ -281,14 +297,51 @@ body {
 
 /* Footer */
 footer {
-    background-color: #000000;
+    background-color: #222;
     color: #fff;
     text-align: center;
-    padding: 20px 0;
+    padding: 30px 0;
     font-size: 0.9em;
-    width: 100vw;
+    width: 100%;
+    box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
 }
 
+/* Información del contacto */
+.footer-info h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.footer-contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contact li {
+    margin: 10px 0;
+}
+
+/* Alineación de los enlaces */
+.footer-contact a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-flex; /* Usamos inline-flex para alinear el texto y los iconos */
+    align-items: center; /* Centra los iconos con el texto */
+    margin: 5px 10px;
+    transition: color 0.3s;
+}
+
+/* Iconos sociales */
+.social-icon svg {
+    width: 24px; /* Ajustamos el tamaño del icono */
+    height: 24px;
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+}
+
+.footer-contact a:hover {
+    color: #007bff; /* Cambia el color de los iconos al pasar el ratón */
+}
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .hero-title {
@@ -307,5 +360,14 @@ footer {
     .contact input,
     .contact textarea {
         width: 100%;
+    }
+    footer {
+        font-size: 0.85em;
+    }
+    .footer-info h3 {
+        font-size: 1.2em;
+    }
+    .footer-contact li {
+        margin: 5px 0;
     }
 }
