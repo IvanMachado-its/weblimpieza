@@ -14,11 +14,15 @@
     <!-- Header Section -->
     <header class="hero">
         <h1 class="hero-title"><%= header.mainHeading %></h1>
-      <!-- <p><%= header.subHeading %></p>
-        <div class="hero-buttons">
+        <p><%= header.subHeading %></p>
+        <!--<div class="hero-buttons">
             <a href="#services" class="btn">View Services</a>
             <a href="#contact" class="btn">Contact Us</a>
-        </div> -->
+            <a href="https://wa.me/1234567890" class="btn">WhatsApp</a>
+            <a href="https://facebook.com" target="_blank" class="btn">Facebook</a>
+            <a href="https://instagram.com" target="_blank" class="btn">Instagram</a>
+        </div>-->
+    
     </header>
 
     <!-- Navigation -->
@@ -26,6 +30,7 @@
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -50,23 +55,31 @@
         </div>
     </section>
 
-
-<!-- Contact Section -->
-<section class="contact" id="contact">
-    <h2><%= contact.heading %></h2>
-    <form id="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
+<!-- Testimonials Section -->
+<section class="testimonials" id="testimonials">
+    <h2><%= testimonials.heading %></h2>
+    <div class="testimonial-grid">
+        <% testimonials.list.forEach(testimonial => { %>
+            <div class="testimonial-card">
+                <p>"<%= testimonial.feedback %>"</p>
+                <strong>- <%= testimonial.name %></strong>
+            </div>
+        <% }); %>
+    </div>
 </section>
 
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2><%= contact.heading %></h2>
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
 
-
-
-    <!-- WhatsApp Button -->
+    <!-- WhatsApp Floating Button -->
     <div class="contact">
         <a href="https://wa.me/1234567890" target="_blank" class="whatsapp">
             <img src="/images/wsp_icon.png" alt="WhatsApp">
@@ -74,26 +87,39 @@
     </div>
 
     <footer>
+        <div class="footer-info">
+            <h3>Contact Information</h3>
+            <ul class="footer-contact">
+                <li><strong>Phone:</strong> <a href="tel:<%= contact.phone %>"><%= contact.phone %></a></li>
+                <li><strong>Email:</strong> <a href="mailto:<%= contact.email %>"><%= contact.email %></a></li>
+                <li>
+                    <strong>Follow Us:</strong>
+                    <a href="<%= contact.social.whatsapp %>" target="_blank">WhatsApp</a> |
+                    <a href="<%= contact.social.facebook %>" target="_blank">Facebook</a> |
+                    <a href="<%= contact.social.instagram %>" target="_blank">Instagram</a>
+                </li>
+            </ul>
+        </div>
         <p>&copy; 2025 Professional Cleaning Services. All rights reserved.</p>
     </footer>
     
-</body>
 
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
 (function() {
     emailjs.init('1YmhXHgHxy9dtEK5j'); // Tu USER ID de EmailJS
-  
+
     const form = document.getElementById('contact-form');
-  
+
     form.addEventListener('submit', function(event) {
         event.preventDefault();
-  
+
         // Enviar el formulario utilizando EmailJS
         emailjs.sendForm('service_limpieza', 'template_zab57rr', this)
             .then(function(response) {
                 console.log('Correo enviado correctamente:', response);
                 alert('Mensaje enviado correctamente.');
-                
+
                 // Limpiar los campos del formulario manualmente
                 form.querySelector('input[name="name"]').value = '';
                 form.querySelector('input[name="email"]').value = '';
@@ -104,5 +130,7 @@
             });
     });
 })();
-  </script>
+</script>
+
+</body>
 </html>
