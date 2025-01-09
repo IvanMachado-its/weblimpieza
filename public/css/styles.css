@@ -104,7 +104,7 @@ body {
 }
 
 .main-nav ul li {
-    margin: 0 20px;
+    margin: 0 15px; /* Reduce el espacio entre los enlaces */
 }
 
 .main-nav ul li a {
@@ -126,20 +126,18 @@ body {
 @media (max-width: 768px) {
     .main-nav ul {
         display: flex;
-        flex-direction: column; /* Coloca los elementos verticalmente en móviles */
+        justify-content: space-around; /* Distribuye los enlaces de manera más uniforme */
         align-items: center;
-        background-color: #007bff;
         width: 100%;
         padding: 10px 0;
     }
 
     .main-nav ul li {
-        margin: 10px 0;
+        margin: 0 10px; /* Reduce aún más el margen entre los elementos */
     }
 
     .main-nav ul li a {
-        font-size: 1.3em;
-        color: #fff;
+        font-size: 1em; /* Reduce un poco el tamaño de la fuente */
     }
 }
 
