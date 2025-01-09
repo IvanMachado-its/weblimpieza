@@ -14,17 +14,17 @@ module.exports = {
             {
                 name: 'Residential Cleaning',
                 description: 'Comprehensive cleaning for homes.',
-                imageUrl: '/images/service1.jpg',
+                imageUrl: './images/muestra.png',
             },
             {
                 name: 'Office Cleaning',
                 description: 'Professional cleaning for businesses.',
-                imageUrl: '/images/service2.jpg',
+                imageUrl: './images/muestra.png',
             },
             {
                 name: 'Deep Cleaning',
                 description: 'Intensive cleaning for deep sanitization.',
-                imageUrl: '/images/service3.jpg',
+                imageUrl: './images/muestra.png',
             },
         ],
     },

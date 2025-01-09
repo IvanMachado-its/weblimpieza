@@ -1,35 +1,38 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
-    color: #333;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container */
 .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
+    padding: 0 20px;
 }
 
-/* Header Section */
+/* Hero Section */
 .hero {
-    background: url('hero-background.jpg') no-repeat center center/cover;
-    color: #fff;
+    background: url('../images/Banner\ muestra.png') no-repeat center center/cover;
+    color: #33ff00;
     text-align: center;
-    padding: 50px 20px;
-    width: 100%;
+    padding: 100px 20px;
+    width: 100vw;
 }
 
 .hero-title {
     font-size: 2.5em;
     font-weight: bold;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 
 .hero-buttons .btn {
@@ -51,31 +54,34 @@ body {
 
 /* Navigation */
 .main-nav {
-    width: 100%;
+    background-color: #007bff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100vw;
 }
 
 .main-nav ul {
     list-style: none;
-    background-color: #007bff;
+    display: flex;
+    justify-content: center;
     padding: 10px 0;
-    text-align: center;
-    margin: 0;
-    width: 100%;
 }
 
 .main-nav ul li {
-    display: inline;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 .main-nav ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 1em;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .main-nav ul li a:hover {
-    text-decoration: underline;
+    color: #cce7ff;
 }
 
 /* About Section */
@@ -83,23 +89,18 @@ body {
     padding: 50px 20px;
     background-color: #f8f9fa;
     text-align: center;
-    width: 100%;
-}
-
-.about h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
 }
 
 /* Services Section */
 .services {
     padding: 50px 20px;
-    width: 100%;
+    background-color: #fff;
+    text-align: center;
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
@@ -107,53 +108,47 @@ body {
     background-color: #fff;
     padding: 20px;
     border: 1px solid #ddd;
+    border-radius: 10px;
     text-align: center;
-    border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.service-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .service-card h3 {
     font-size: 1.5em;
-    margin: 10px 0;
-}
-
-/* Reviews Section */
-.reviews {
-    padding: 50px 20px;
-    background-color: #f8f9fa;
-    width: 100%;
-}
-
-.reviews ul {
-    list-style: none;
-    padding: 0;
-}
-
-.reviews ul li {
-    background-color: #fff;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
 }
 
 /* Contact Section */
 .contact {
     padding: 50px 20px;
+    background-color: #f8f9fa;
     text-align: center;
-    width: 100%;
 }
 
 .contact form {
+    max-width: 500px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 15px;
-    align-items: center;
 }
 
-.contact input, .contact textarea {
+.contact input,
+.contact textarea {
     width: 100%;
-    max-width: 500px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -167,7 +162,6 @@ body {
     border-radius: 25px;
     font-size: 1em;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
 }
 
@@ -175,6 +169,7 @@ body {
     background-color: #0056b3;
 }
 
+/* WhatsApp Button */
 .contact .whatsapp {
     position: fixed;
     bottom: 20px;
@@ -207,7 +202,8 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px 0;
-    width: 100%;
+    font-size: 0.9em;
+    width: 100vw;
 }
 
 /* Responsive Design */
@@ -225,16 +221,8 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .contact input, .contact textarea {
-        width: 90%;
-    }
-
-    .contact button {
-        width: 90%;
-    }
-
-    .main-nav ul li {
-        display: block;
-        margin: 5px 0;
+    .contact input,
+    .contact textarea {
+        width: 100%;
     }
 }
