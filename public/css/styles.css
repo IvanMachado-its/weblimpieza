@@ -131,8 +131,8 @@ body {
 }
 
 .main-nav ul li a:hover {
-    color: #000000;
-    border-bottom: 2px solid #fff;
+    color: #2600ff;
+    border-bottom: 2px solid #000000;
 }
 
 
@@ -275,12 +275,14 @@ body {
     text-align: center;
 }
 
+/* Grid de testimonios */
 .testimonial-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
+/* Tarjeta de testimonio */
 .testimonial-card {
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid #ddd;
@@ -288,12 +290,53 @@ body {
     text-align: center;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Organiza los hijos en columna */
+    justify-content: space-between; /* Distribuye uniformemente */
+    height: 250px; /* Fija altura uniforme para todas las tarjetas */
 }
 
+/* Efecto hover para las tarjetas */
 .testimonial-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+/* Estilo de las comillas (Icono en la esquina) */
+.quote-icon {
+    position: absolute;
+    top: -33px;
+    left: -25px;
+    /* background-color: #fff; */
+    padding: 10px;
+    border-radius: 50%;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+
+
+/* Estilo del contenido principal */
+.testimonial-card p {
+    margin-bottom: auto; /* Empuja el texto hacia arriba */
+}
+
+/* Estilo del nombre */
+.testimonial-card strong {
+    margin: 10px 0; /* Espacio entre el texto y las estrellas */
+}
+
+/* Estilo de la sección de estrellas */
+.rating {
+    justify-content: center;
+    align-items: center; /* Centra verticalmente */
+}
+
+/* Estilo de las estrellas */
+.rating svg {
+    fill: #ffcc00;
+    margin: 0 2px;
+}
+
 
 /* Footer */
 footer {
