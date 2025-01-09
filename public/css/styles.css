@@ -82,7 +82,7 @@ body {
 
 /* Estilos generales del menú */
 .main-nav {
-    background-color: #727272;
+    background-color: #ffffff;
     position: fixed;
     top: 0;
     left: 0;
@@ -121,7 +121,7 @@ body {
 }
 
 .main-nav ul li a {
-    color: #fff;
+    color: #000000;
     text-decoration: none;
     font-size: 1.1em;
     font-weight: 500;
