@@ -121,19 +121,26 @@ body {
 }
 
 .main-nav ul li a {
-    color: #000000;
+    color: #000000; /* Color más suave */
     text-decoration: none;
     font-size: 1.1em;
     font-weight: 500;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
-    padding-bottom: 5px;
-    border-bottom: 2px solid transparent;
+    padding: 10px 15px; /* Espaciado interno para apariencia de botón */
+    /*border-radius: 5px;  Bordes redondeados */
+    border: 1px solid transparent; /* Borde para usar con hover */
+    /*background-color: #f9f9f9;  Fondo claro */
+    transition: all 0.3s ease; /* Animación más suave */
+    /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  Sombra suave */
 }
 
 .main-nav ul li a:hover {
-    color: #2600ff;
-    border-bottom: 2px solid #000000;
+    color: #ffffff; /* Cambiar color de texto */
+    background-color: #000000; /* Fondo destacado */
+    border: 1px solid #000000; /* Borde visible */
+    transform: scale(1.05); /* Efecto de zoom */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
 }
+
 
 
 /* Estilos del menú en dispositivos móviles */
