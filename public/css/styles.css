@@ -3,13 +3,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f7f9fc;
+    background-color: #f4f4f9;
     color: #333;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* Container */
@@ -20,69 +22,127 @@ body {
     padding: 0 20px;
 }
 
-/* Hero Section */
+/* HERO Section */
 .hero {
-    background: url('../images/Banner\ muestra.png') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), 
+        url('../images/Banner\ muestra.png') no-repeat center center/cover;
     color: #fff;
     text-align: center;
-    padding: 100px 20px;
+    padding: 120px 20px;
     width: 100vw;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
 }
 
-.hero-title {
-    font-size: 2.5em;
-    font-weight: bold;
+.hero .hero-title {
+    font-size: 3.5em;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
     margin-bottom: 20px;
+    animation: fadeInDown 1s ease-in-out;
 }
 
+.hero p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Botones Hero */
 .hero-buttons .btn {
-    display: inline-block;
-    background-color: #28a745;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #fff;
     color: #fff;
-    padding: 10px 20px;
-    margin: 5px;
+    padding: 12px 25px;
+    margin: 10px;
     text-decoration: none;
-    border-radius: 25px;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
 }
 
 .hero-buttons .btn:hover {
-    background-color: #218838;
+    background: #fff;
+    color: #007bff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
 }
 
-/* Navigation */
+/* Estilos generales del menú */
 .main-nav {
     background-color: #007bff;
-    position: sticky;
+    position: fixed; /* Fijar el menú al principio */
     top: 0;
-    z-index: 1000;
-    width: 100vw;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    display: flex;
+    justify-content: center; /* Centrar los elementos horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease; /* Transición suave para el efecto de ocultar/mostrar */
 }
 
 .main-nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
-    padding: 10px 0;
+    padding: 0;
+    margin: 0;
 }
 
 .main-nav ul li {
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 .main-nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 1em;
+    font-size: 1.1em;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
 }
 
 .main-nav ul li a:hover {
-    color: #cce7ff;
+    color: #000000;
+    border-bottom: 2px solid #fff;
 }
+
+/* Estilos móviles */
+@media (max-width: 768px) {
+    .main-nav ul {
+        display: flex;
+        flex-direction: column; /* Coloca los elementos verticalmente en móviles */
+        align-items: center;
+        background-color: #007bff;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .main-nav ul li {
+        margin: 10px 0;
+    }
+
+    .main-nav ul li a {
+        font-size: 1.3em;
+        color: #fff;
+    }
+}
+
 
 /* About Section */
 .about {
@@ -108,7 +168,6 @@ body {
     background-color: #fff;
     padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -116,18 +175,17 @@ body {
 
 .service-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .service-card img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
     margin-bottom: 15px;
 }
 
 .service-card h3 {
-    font-size: 1.5em;
+    font-size: 1.6em;
     margin-bottom: 10px;
 }
 
@@ -149,20 +207,20 @@ body {
 .contact input,
 .contact textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .contact button {
     background-color: #007bff;
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border: none;
-    border-radius: 25px;
-    font-size: 1em;
+    font-size: 1.1em;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    border-radius: 5px;
 }
 
 .contact button:hover {
@@ -178,13 +236,13 @@ body {
     color: #fff;
     width: 60px;
     height: 60px;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
     z-index: 1000;
+    border-radius: 50%;
 }
 
 .contact .whatsapp:hover {
@@ -210,18 +268,17 @@ body {
 }
 
 .testimonial-card {
-    background-color: #f8f9fa;
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
     border: 1px solid #ddd;
-    border-radius: 10px;
+    padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Footer */
@@ -233,41 +290,16 @@ footer {
     font-size: 0.9em;
     width: 100vw;
 }
-/* Footer Contact Info */
-.footer-info {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.footer-contact {
-    list-style: none;
-    padding: 0;
-    font-size: 1em;
-}
-
-.footer-contact li {
-    margin-bottom: 10px;
-}
-
-.footer-contact a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.footer-contact a:hover {
-    text-decoration: underline;
-}
-
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     .hero-title {
-        font-size: 2em;
+        font-size: 2.5em;
     }
 
     .hero-buttons .btn {
         font-size: 0.9em;
-        padding: 8px 15px;
+        padding: 8px 20px;
     }
 
     .services-grid {

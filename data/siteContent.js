@@ -46,9 +46,8 @@ module.exports = {
     contact: {
         heading: 'Contact Us',
         description: 'Reach out to us for a free quote or to schedule a cleaning service. Your satisfaction is our priority!',
-        phone: '(123) 456-7890',
+        phone: '(+123) 456-7890',
         social: {
-            whatsapp: 'https://wa.me/1234567890',
             facebook: 'https://facebook.com/cleaningservices',
             instagram: 'https://instagram.com/cleaningservices',
         },
