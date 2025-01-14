@@ -192,81 +192,14 @@ style="fill:#FFFFFF;">
 
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@9.0.0/swiper-bundle.min.js"></script>
+<!-- Enlazar archivos de scripts -->
+<script src="/js/swiper-config.js"></script>
+<script src="/js/menu-toggle.js"></script>
 
 
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-// Configuración de Swiper
-document.addEventListener('DOMContentLoaded', function() {
-    const swiper = new Swiper('.swiper-container', {
-        slidesPerView: 4,  // Número de elementos visibles por defecto
-        spaceBetween: 10,  // Espacio entre los elementos
-        loop: true,  // Activar el bucle infinito
-        autoplay: {
-            delay: 3000,  // Velocidad de cambio (3 segundos)
-            disableOnInteraction: false,  // Mantener autoplay después de la interacción
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        breakpoints: {
-            1024: {
-                slidesPerView: 4,  // Mostrar 3 elementos en pantallas grandes
-            },
-            768: {
-                slidesPerView: 2,  // Mostrar 2 elementos en pantallas medianas
-            },
-            0: {
-                slidesPerView: 1,  // Mostrar 1 elemento en pantallas pequeñas
-                spaceBetween: 0,  // Eliminar el espacio entre las tarjetas en pantallas pequeñas
-            }
-        },
-        effect: 'slide',  // Efecto de transición entre elementos
-    });
-});
-
-
-
-
-
-let lastScrollTop = 0; // Variable para almacenar la última posición del scroll
-const navbar = document.querySelector('.main-nav'); // Selecciona el navbar
-
-
-window.addEventListener('scroll', function() {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop; // Obtiene la posición actual del scroll
-
-    const navbar = document.querySelector('.main-nav');
-    
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');  // Activa la sombra intensa
-    } else {
-        navbar.classList.remove('scrolled');  // Desactiva la sombra
-    }
-
-    if (currentScroll <= 0) {
-        navbar.style.transform = 'translateY(0)'; // Asegura que se vea al principio de la página
-    } else if (currentScroll > lastScrollTop && currentScroll > navbar.offsetHeight) {
-        // Si el usuario hace scroll hacia abajo y ya ha pasado la altura del navbar, lo ocultamos
-        navbar.style.transform = 'translateY(-100%)'; // Mueve el navbar fuera de la vista
-    } else if (currentScroll < lastScrollTop) {
-        // Si el usuario hace scroll hacia arriba, mostramos el navbar
-        navbar.style.transform = 'translateY(0)'; // Muestra el navbar de nuevo
-    }
-
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Actualiza la última posición del scroll
-});
-
-const menuToggle = document.querySelector('.menu-toggle');
-const navList = document.querySelector('.nav-list');
-const menuIcon = document.querySelector('.menu-icon');
-
-menuToggle.addEventListener('click', () => {
-    navList.classList.toggle('active');
-    menuIcon.classList.toggle('open');
-});
 
 
 (function() {
