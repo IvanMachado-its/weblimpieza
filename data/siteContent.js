@@ -14,32 +14,32 @@ module.exports = {
             {
                 name: 'Residential Cleaning',
                 description: 'Comprehensive cleaning for homes, ensuring every corner is spotless and welcoming.',
-                imageUrl: './images/muestra.png',
+                imageUrl: './images/banner-3.jpg',
             },
             {
                 name: 'Office Cleaning',
                 description: 'Professional cleaning services designed to maintain a clean and productive workplace.',
-                imageUrl: './images/muestra.png',
+                imageUrl: './images/banner-4.jpg',
             },
             {
                 name: 'Deep Cleaning',
                 description: 'Thorough sanitization for homes or offices, perfect for seasonal cleaning or special occasions.',
-                imageUrl: './images/muestra.png',
+                imageUrl: './images/banner-2.jpg',
             },
             {
                 name: 'Carpet Cleaning',
                 description: 'Efficient cleaning to remove stains, odors, and allergens from your carpets.',
-                imageUrl: './images/muestra.png',
+                imageUrl: './images/banner-2.jpg',
             },
             {
                 name: 'Window Cleaning',
                 description: 'Spotless window cleaning for crystal-clear views in your home or office.',
-                imageUrl: './images/muestra.png',
+                imageUrl: './images/banner-3.jpg',
             },
             {
                 name: 'Construct Cleaning',
                 description: 'Cleaning after renovations to remove all dust and debris for a perfect finish.',
-                imageUrl: './images/muestra.png',
+                imageUrl: './images/banner-4.jpg',
             },
         ],
     },
