@@ -9,6 +9,11 @@
     <meta name="robots" content="index, follow">
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/styles.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9.0.0/swiper-bundle.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+
 </head>
 <body>
     
@@ -24,7 +29,15 @@
 
 <!-- Navigation -->
 <nav class="main-nav">
-    <ul>
+    <div class="logo">
+        <img src="/images/logo.png" alt="Logo" />
+    </div>
+    <button class="menu-toggle" aria-label="Toggle menu">
+        <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
+            <path d="M 12 6.9863281 C 9.256343 6.9863281 7 9.2426712 7 11.986328 C 7 14.729985 9.256343 16.986328 12 16.986328 L 36 16.986328 C 38.743657 16.986328 41 14.729985 41 11.986328 C 41 9.2426712 38.743657 6.9863281 36 6.9863281 L 12 6.9863281 z M 12 9.9863281 L 36 9.9863281 C 37.122343 9.9863281 38 10.863985 38 11.986328 C 38 13.108671 37.122343 13.986328 36 13.986328 L 12 13.986328 C 10.877657 13.986328 10 13.108671 10 11.986328 C 10 10.863985 10.877657 9.9863281 12 9.9863281 z M 12 18.986328 C 9.256343 18.986328 7 21.242671 7 23.986328 C 7 26.729985 9.256343 28.986328 12 28.986328 L 36 28.986328 C 38.743657 28.986328 41 26.729985 41 23.986328 C 41 21.242671 38.743657 18.986328 36 18.986328 L 12 18.986328 z M 12 21.986328 L 36 21.986328 C 37.122343 21.986328 38 22.863985 38 23.986328 C 38 25.108671 37.122343 25.986328 36 25.986328 L 12 25.986328 C 10.877657 25.986328 10 25.108671 10 23.986328 C 10 22.863985 10.877657 21.986328 12 21.986328 z M 12 30.986328 C 9.256343 30.986328 7 33.242671 7 35.986328 C 7 38.729985 9.256343 40.986328 12 40.986328 L 36 40.986328 C 38.743657 40.986328 41 38.729985 41 35.986328 C 41 33.242671 38.743657 30.986328 36 30.986328 L 12 30.986328 z M 12 33.986328 L 36 33.986328 C 37.122343 33.986328 38 34.863985 38 35.986328 C 38 37.108671 37.122343 37.986328 36 37.986328 L 12 37.986328 C 10.877657 37.986328 10 37.108671 10 35.986328 C 10 34.863985 10.877657 33.986328 12 33.986328 z"></path>
+        </svg>
+    </button>
+    <ul class="nav-list">
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#testimonials">Testimonials</a></li>
@@ -34,25 +47,41 @@
 
 
 
+
+
+
     <!-- About Section -->
     <section class="about" id="about">
         <h2><%= about.heading %></h2>
         <p><%= about.description %></p>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div style="margin: 30px;"><h2><%= services.heading %></h2></div>
-        <div class="services-grid">
+<!-- Services Section -->
+<section class="services" id="services">
+    <div class="section-header" style="margin: 30px; text-align: center;">
+        <h2><%= services.heading %></h2>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
             <% services.list.forEach(service => { %>
-                <div class="service-card">
-                    <img src="<%= service.imageUrl %>" alt="<%= service.name %>" style="width: 100%; border-radius: 5px;">
-                    <h3><%= service.name %></h3>
-                    <p><%= service.description %></p>
+                <div class="swiper-slide">
+                    <div class="service-card">
+                        <img src="<%= service.imageUrl %>" alt="<%= service.name %>" class="service-img">
+                        <h3><%= service.name %></h3>
+                        <p><%= service.description %></p>
+                    </div>
                 </div>
             <% }); %>
         </div>
-    </section>
+        <!-- Agregar controles de navegación -->
+<!-- Botones de navegación -->
+<div class="swiper-button-next"></div>
+<div class="swiper-button-prev"></div>
+
+    </div>
+</section>
+
+
 
 <!-- Testimonials Section -->
 <section class="testimonials" id="testimonials">
@@ -117,33 +146,91 @@ style="fill:#ffd000;">
 
 
     <footer>
-    <div class="footer-info">
-        <h3>Contact Information</h3>
-        <ul class="footer-contact">
-            <li><strong>Phone:</strong> <a href="tel:<%= contact.phone %>"><%= contact.phone %></a></li>
-            <li>
-                <a href="<%= contact.social.facebook %>" target="_blank" class="social-icon">
-                    <!-- Facebook Icon SVG -->
-                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
-                        <linearGradient id="awSgIinfw5_FS5MLHI~A9a_yGcWL8copNNQ_gr1" x1="6.228" x2="42.077" y1="4.896" y2="43.432" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0d61a9"></stop><stop offset="1" stop-color="#16528c"></stop></linearGradient><path fill="url(#awSgIinfw5_FS5MLHI~A9a_yGcWL8copNNQ_gr1)" d="M42,40c0,1.105-0.895,2-2,2H8c-1.105,0-2-0.895-2-2V8c0-1.105,0.895-2,2-2h32	c1.105,0,2,0.895,2,2V40z"></path><path d="M25,38V27h-4v-6h4v-2.138c0-5.042,2.666-7.818,7.505-7.818c1.995,0,3.077,0.14,3.598,0.208	l0.858,0.111L37,12.224L37,17h-3.635C32.237,17,32,18.378,32,19.535V21h4.723l-0.928,6H32v11H25z" opacity=".05"></path><path d="M25.5,37.5v-11h-4v-5h4v-2.638c0-4.788,2.422-7.318,7.005-7.318c1.971,0,3.03,0.138,3.54,0.204	l0.436,0.057l0.02,0.442V16.5h-3.135c-1.623,0-1.865,1.901-1.865,3.035V21.5h4.64l-0.773,5H31.5v11H25.5z" opacity=".07"></path><path fill="#fff" d="M33.365,16H36v-3.754c-0.492-0.064-1.531-0.203-3.495-0.203c-4.101,0-6.505,2.08-6.505,6.819V22h-4v4	h4v11h5V26h3.938l0.618-4H31v-2.465C31,17.661,31.612,16,33.365,16z"></path>
-                        </svg>
-                </a>
-                <a href="<%= contact.social.instagram %>" target="_blank" class="social-icon">
-                    <!-- Instagram Icon SVG -->
-                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
-                        <radialGradient id="yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1" cx="19.38" cy="42.035" r="44.899" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fd5"></stop><stop offset=".328" stop-color="#ff543f"></stop><stop offset=".348" stop-color="#fc5245"></stop><stop offset=".504" stop-color="#e64771"></stop><stop offset=".643" stop-color="#d53e91"></stop><stop offset=".761" stop-color="#cc39a4"></stop><stop offset=".841" stop-color="#c837ab"></stop></radialGradient><path fill="url(#yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1)" d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z"></path><radialGradient id="yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2" cx="11.786" cy="5.54" r="29.813" gradientTransform="matrix(1 0 0 .6663 0 1.849)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4168c9"></stop><stop offset=".999" stop-color="#4168c9" stop-opacity="0"></stop></radialGradient><path fill="url(#yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2)" d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z"></path><path fill="#fff" d="M24,31c-3.859,0-7-3.14-7-7s3.141-7,7-7s7,3.14,7,7S27.859,31,24,31z M24,19c-2.757,0-5,2.243-5,5	s2.243,5,5,5s5-2.243,5-5S26.757,19,24,19z"></path><circle cx="31.5" cy="16.5" r="1.5" fill="#fff"></circle><path fill="#fff" d="M30,37H18c-3.859,0-7-3.14-7-7V18c0-3.86,3.141-7,7-7h12c3.859,0,7,3.14,7,7v12	C37,33.86,33.859,37,30,37z M18,13c-2.757,0-5,2.243-5,5v12c0,2.757,2.243,5,5,5h12c2.757,0,5-2.243,5-5V18c0-2.757-2.243-5-5-5H18z"></path>
-                        </svg>
-                </a>
-            </li>
-        </ul>
-        
-    </div>
-    <p>&copy; 2025 Professional Cleaning Services. All rights reserved.</p>
-</footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <p><%= contact.description %></p>
+                <ul class="footer-contact">
+                    <li><strong>Phone:</strong> <a href="tel:<%= contact.phone %>"><%= contact.phone %></a></li>
+                    <li class="footer-social">
+                        <a href="<%= contact.social.facebook %>" target="_blank" class="social-icon">
+                            <!-- Facebook Icon SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,300,150"
+style="fill:#FFFFFF;">
+<g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M24,4c-11.02793,0 -20,8.97207 -20,20c0,11.02793 8.97207,20 20,20c11.02793,0 20,-8.97207 20,-20c0,-11.02793 -8.97207,-20 -20,-20zM24,7c9.40662,0 17,7.59339 17,17c0,8.38077 -6.03282,15.30637 -14,16.7207v-11.7207h3.625c0.504,0 0.93019,-0.37695 0.99219,-0.87695l0.375,-3c0.036,-0.284 -0.05414,-0.56916 -0.24414,-0.78516c-0.189,-0.215 -0.46105,-0.33789 -0.74805,-0.33789h-4v-3.5c0,-1.103 0.897,-2 2,-2h2c0.552,0 1,-0.447 1,-1v-3.375c0,-0.518 -0.39516,-0.95009 -0.91016,-0.99609c-0.059,-0.005 -1.46986,-0.12891 -3.25586,-0.12891c-4.407,0 -6.83398,2.61619 -6.83398,7.36719v3.63281h-4c-0.552,0 -1,0.447 -1,1v3c0,0.553 0.448,1 1,1h4v11.7207c-7.96718,-1.41433 -14,-8.33993 -14,-16.7207c0,-9.40661 7.59339,-17 17,-17z"></path></g></g>
+</svg>
+
+                        </a>
+                        <a href="<%= contact.social.instagram %>" target="_blank" class="social-icon">
+                            <!-- Instagram Icon SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,300,150"
+style="fill:#FFFFFF;">
+<g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M16.5,5c-6.33361,0 -11.5,5.16639 -11.5,11.5v15c0,6.33276 5.16621,11.5 11.5,11.5h15c6.33294,0 11.5,-5.16706 11.5,-11.5v-15c0,-6.33379 -5.16724,-11.5 -11.5,-11.5zM16.5,8h15c4.71124,0 8.5,3.78779 8.5,8.5v15c0,4.71106 -3.78894,8.5 -8.5,8.5h-15c-4.71221,0 -8.5,-3.78876 -8.5,-8.5v-15c0,-4.71239 3.78761,-8.5 8.5,-8.5zM34,12c-1.105,0 -2,0.895 -2,2c0,1.105 0.895,2 2,2c1.105,0 2,-0.895 2,-2c0,-1.105 -0.895,-2 -2,-2zM24,14c-5.50482,0 -10,4.49518 -10,10c0,5.50482 4.49518,10 10,10c5.50482,0 10,-4.49518 10,-10c0,-5.50482 -4.49518,-10 -10,-10zM24,17c3.88318,0 7,3.11682 7,7c0,3.88318 -3.11682,7 -7,7c-3.88318,0 -7,-3.11682 -7,-7c0,-3.88318 3.11682,-7 7,-7z"></path></g></g>
+</svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3><%= information.title %></h3>
+                <p><%= information.description %></p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/services">Our Services</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>&copy; 2025 Professional Cleaning Services. All rights reserved.</p>
+    </footer>
+    
+
+
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9.0.0/swiper-bundle.min.js"></script>
+
 
 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
+// Configuración de Swiper
+document.addEventListener('DOMContentLoaded', function() {
+    const swiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,  // Número de elementos visibles por defecto
+        spaceBetween: 10,  // Espacio entre los elementos
+        loop: true,  // Activar el bucle infinito
+        autoplay: {
+            delay: 3000,  // Velocidad de cambio (3 segundos)
+            disableOnInteraction: false,  // Mantener autoplay después de la interacción
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            1024: {
+                slidesPerView: 3,  // Mostrar 3 elementos en pantallas grandes
+            },
+            768: {
+                slidesPerView: 2,  // Mostrar 2 elementos en pantallas medianas
+            },
+            0: {
+                slidesPerView: 1,  // Mostrar 1 elemento en pantallas pequeñas
+                spaceBetween: 0,  // Eliminar el espacio entre las tarjetas en pantallas pequeñas
+            }
+        },
+        effect: 'slide',  // Efecto de transición entre elementos
+    });
+});
+
+
+
+
+
 let lastScrollTop = 0; // Variable para almacenar la última posición del scroll
 const navbar = document.querySelector('.main-nav'); // Selecciona el navbar
 
@@ -172,6 +259,14 @@ window.addEventListener('scroll', function() {
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Actualiza la última posición del scroll
 });
 
+const menuToggle = document.querySelector('.menu-toggle');
+const navList = document.querySelector('.nav-list');
+const menuIcon = document.querySelector('.menu-icon');
+
+menuToggle.addEventListener('click', () => {
+    navList.classList.toggle('active');
+    menuIcon.classList.toggle('open');
+});
 
 
 (function() {

@@ -37,7 +37,7 @@ module.exports = {
                 imageUrl: './images/muestra.png',
             },
             {
-                name: 'Post-Construction Cleaning',
+                name: 'Construct Cleaning',
                 description: 'Cleaning after renovations to remove all dust and debris for a perfect finish.',
                 imageUrl: './images/muestra.png',
             },
@@ -68,5 +68,9 @@ module.exports = {
                 feedback: 'The deep cleaning service was exceptional. My house feels brand new!',
             },
         ],
+    },
+    information: {
+        title: 'Information aditional',
+        description: 'At Professional Cleaning Services, we are committed to making your spaces shine. Whether it’s your home or office, our dedicated team provides top-notch cleaning tailored to your needs.',
     },
 };
