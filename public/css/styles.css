@@ -1,3 +1,5 @@
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
+
 /* General Reset */
 * {
     margin: 0;
@@ -14,46 +16,52 @@ body {
     overflow-x: hidden;
 }
 
-
-/* Container */
+/* General container 
 .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-}
+}*/
 
+/* Hero banner */
 .hero {
     background: url('../images/Banner\ muestra.png') no-repeat center center;
-    background-size: contain; /* Asegura que la imagen se ajuste sin recortes */
-    background-position: center;
-    width: 100%;
-    height: calc(100vh - 60px); /* Ajusta la altura para que ocupe toda la pantalla después del navbar */
+    background-size: contain; /* Asegura que la imagen quepa sin recortarse */
+    background-position: top center; /* Coloca la imagen al centro superior */
+    width: 100%; /* Ocupa el 100% del ancho */
     position: relative;
-    z-index: 1;
-    margin-top: 0; /* Elimina el espacio entre el navbar y el banner */
+    box-sizing: border-box;
+    padding: 25%;
+    margin-top: 3rem;
 }
 
 /* Media query para pantallas grandes */
 @media (min-width: 1200px) {
     .hero {
-        height: calc(100vh - 60px); /* Asegura que ocupe toda la altura disponible después del navbar */
-    }
-}
-
-/* Media query para dispositivos pequeños (móviles) */
-@media (max-width: 767px) {
-    .hero {
-        height: calc(70vh - 60px); /* Ajusta la altura para dispositivos pequeños */
+        background-image: url('../images/Banner\ muestra.png'); /* Imagen grande */
+        height: auto;
+        padding: 25%;
     }
 }
 
 /* Media query para dispositivos medianos (tabletas) */
 @media (max-width: 1024px) {
     .hero {
-        height: calc(80vh - 60px); /* Ajusta la altura para tabletas */
+        background-image: url('../images/mediano.png'); /* Imagen mediana */
+        height: auto;
+        padding: 25%;
     }
 }
+
+/* Media query para dispositivos pequeños (móviles) */
+@media (max-width: 768px) {
+    .hero {
+        height: auto; /* Ajusta automáticamente según el contenido */
+        padding: 25%;
+    }
+}
+
 
 /* Estilos generales del menú */
 .main-nav {
