@@ -334,6 +334,7 @@ body {
     line-height: 1.5;
     flex-grow: 1; /* Permitir que el texto ocupe el espacio disponible */
     margin-bottom: 15px;
+    height: 100px;
 }
 .swiper-button-next, .swiper-button-prev {
     color: #333;
