@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contáctanos para cualquier consulta o información sobre nuestros servicios.">
+    <meta name="keywords" content="contacto, formulario de contacto, servicios de limpieza">
+    <meta name="author" content="Professional Cleaning Services">
+    <meta name="robots" content="index, follow">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="logo">
+            <a href="/"><img src="/images/logo.png" alt="Logo"></a>
+        </div>
+        <ul class="nav-list">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/">Servicios</a></li>
+            <li><a href="/">Nosotros</a></li>
+            <li><a href="/contact">Contacto</a></li>
+        </ul>
+    </nav>
+
+     <!-- Contact Section -->
+     <section class="contactus" id="contactus">
+        <div class="container">
+            <h2>Contáctanos</h2>
+            <p>Déjanos tu mensaje y nos pondremos en contacto contigo lo antes posible.</p>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Tu Nombre" required>
+                <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
+                <textarea name="message" placeholder="Tu Mensaje" rows="5" required></textarea>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Logo Section -->
+            <div class="footer-logo">
+                <img src="/images/logo.png" alt="Company Logo" class="logo">
+            </div>
+    
+            <!-- Information Section -->
+            <div class="footer-info">
+                <h3>Contact Information</h3>
+                <p><%= contact.description %></p>
+                <ul class="footer-contact">
+                    <li><strong>Phone:</strong> <a href="tel:<%= contact.phone %>"><%= contact.phone %></a></li>
+                    <li class="footer-social">
+                        <a href="<%= contact.social.facebook %>" target="_blank" class="social-icon">
+                            <!-- Facebook Icon SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,300,150" style="fill:#FFFFFF;">
+                                <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                    <g transform="scale(5.33333,5.33333)">
+                                        <path d="M24,4c-11.02793,0 -20,8.97207 -20,20c0,11.02793 8.97207,20 20,20c11.02793,0 20,-8.97207 20,-20c0,-11.02793 -8.97207,-20 -20,-20zM24,7c9.40662,0 17,7.59339 17,17c0,8.38077 -6.03282,15.30637 -14,16.7207v-11.7207h3.625c0.504,0 0.93019,-0.37695 0.99219,-0.87695l0.375,-3c0.036,-0.284 -0.05414,-0.56916 -0.24414,-0.78516c-0.189,-0.215 -0.46105,-0.33789 -0.74805,-0.33789h-4v-3.5c0,-1.103 0.897,-2 2,-2h2c0.552,0 1,-0.447 1,-1v-3.375c0,-0.518 -0.39516,-0.95009 -0.91016,-0.99609c-0.059,-0.005 -1.46986,-0.12891 -3.25586,-0.12891c-4.407,0 -6.83398,2.61619 -6.83398,7.36719v3.63281h-4c-0.552,0 -1,0.447 -1,1v3c0,0.553 0.448,1 1,1h4v11.7207c-7.96718,-1.41433 -14,-8.33993 -14,-16.7207c0,-9.40661 7.59339,-17 17,-17z"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
+                        <a href="<%= contact.social.instagram %>" target="_blank" class="social-icon">
+                            <!-- Instagram Icon SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,300,150" style="fill:#FFFFFF;">
+                                <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                    <g transform="scale(5.33333,5.33333)">
+                                        <path d="M16.5,5c-6.33361,0 -11.5,5.16639 -11.5,11.5v15c0,6.33276 5.16621,11.5 11.5,11.5h15c6.33294,0 11.5,-5.16706 11.5,-11.5v-15c0,-6.33379 -5.16724,-11.5 -11.5,-11.5zM16.5,8h15c4.71124,0 8.5,3.78779 8.5,8.5v15c0,4.71106 -3.78894,8.5 -8.5,8.5h-15c-4.71221,0 -8.5,-3.78876 -8.5,-8.5v-15c0,-4.71239 3.78761,-8.5 8.5,-8.5zM34,12c-1.105,0 -2,0.895 -2,2c0,1.105 0.895,2 2,2c1.105,0 2,-0.895 2,-2c0,-1.105 -0.895,-2 -2,-2zM24,14c-5.50482,0 -10,4.49518 -10,10c0,5.50482 4.49518,10 10,10c5.50482,0 10,-4.49518 10,-10c0,-5.50482 -4.49518,-10 -10,-10zM24,17c3.88318,0 7,3.11682 7,7c0,3.88318 -3.11682,7 -7,7c-3.88318,0 -7,-3.11682 -7,-7c0,-3.88318 3.11682,-7 7,-7z"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <p>&copy; 2025 Professional Cleaning Services. All rights reserved.</p>
+    </footer>
+</body>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+
+
+(function() {
+    emailjs.init('1YmhXHgHxy9dtEK5j');
+
+    const form = document.getElementById('contact-form');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        emailjs.sendForm('service_limpieza', 'template_zab57rr', this)
+            .then(function(response) {
+                console.log('Correo enviado correctamente:', response);
+                alert('Mensaje enviado correctamente.');
+
+                form.reset();
+            }, function(error) {
+                console.log('Error al enviar el correo:', error);
+                alert('Hubo un error al enviar el mensaje. Intenta nuevamente.');
+            });
+    });
+})();
+</script>
+</html>

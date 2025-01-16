@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const swiper = new Swiper('.swiper-container', {
-        slidesPerView: 4,  // Número de elementos visibles por defecto
+        slidesPerView: 3,  // Número de elementos visibles por defecto
         spaceBetween: 10,  // Espacio entre los elementos
         loop: true,  // Activar el bucle infinito
         autoplay: {
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         breakpoints: {
             1024: {
-                slidesPerView: 4,  // Mostrar 3 elementos en pantallas grandes
+                slidesPerView: 3,  // Mostrar 3 elementos en pantallas grandes
             },
             768: {
                 slidesPerView: 2,  // Mostrar 2 elementos en pantallas medianas

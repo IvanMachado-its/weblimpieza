@@ -5,6 +5,23 @@ const PORT = process.env.PORT || 8080;
 const siteContent = require('./data/siteContent');
 require('dotenv').config();
 
+// Ruta para mostrar la página de contacto
+app.get('/contact', (req, res) => {
+    res.render('contact', {
+        contact: {
+            heading: 'Contáctanos',
+            description: 'Estamos aquí para ayudarte.',
+            phone: '+59812345678',
+            social: {
+                facebook: 'https://facebook.com/professional-cleaning',
+                instagram: 'https://instagram.com/professional-cleaning'
+            }
+        }
+    });
+});
+
+
+
 // Serve static files like images and styles
 app.use(express.static(path.join(__dirname, 'public')));
 
